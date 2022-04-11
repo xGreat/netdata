@@ -203,7 +203,7 @@ jobs:
         with:
           submodules: recursive
       - name: Fetch test environment
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: ${{ matrix.artifact_key }}-test-env
       - name: Load test environment
@@ -271,7 +271,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Fetch dist tarball artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: dist-tarball
           path: dist-tarball
@@ -285,7 +285,7 @@ jobs:
           sha256sum -b ./* > "sha256sums.txt" || exit 1
           cat sha256sums.txt
       - name: Fetch test environment
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: ${{ matrix.artifact_key }}-test-env
       - name: Load test environment
@@ -326,12 +326,12 @@ jobs:
       - name: Prepare Environment
         run: mkdir -p artifacts
       - name: Retrieve Dist Tarball
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: dist-tarball
           path: dist-tarball
       - name: Retrieve Static Build Artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: static-archive
           path: static-archive
@@ -383,7 +383,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Fetch artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: final-artifacts
           path: artifacts
@@ -424,7 +424,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Fetch artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: final-artifacts
           path: artifacts
@@ -460,7 +460,7 @@ jobs:
       - artifact-verification-static
     steps:
       - name: Retrieve Artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: final-artifacts
           path: final-artifacts
@@ -507,7 +507,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Retrieve Artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: final-artifacts
           path: final-artifacts
